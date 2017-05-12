@@ -36,20 +36,27 @@ hbs.registerHelper('screamIt', (text) => {
 });
 
 app.get('/', (req, res) =>{
-	//res.send('<h1>hello express</h1>');
-	res.send({
-		name: 'Kirsten',
-		likes: [
-		'painting',
-		'exercise',
-		'programming'
-		]
+	res.render('home.hbs', {
+		pageTitle: 'Home Page',
+		welcomeMessage: 'Welcome to our website!'
 	});
 });
 app.get('/home', (req,res) => {
 	res.render('home.hbs', {
 		pageTitle: 'Home Page',
 		welcomeMessage: 'Welcome to our website!'
+	});
+});
+app.get('/projects', (req,res) => {
+	res.render('projects.hbs', {
+		pageTitle: 'Projects',
+		welcomeMessage: 'Check out our current projects!'
+	});
+});
+app.get('/help', (req,res) => {
+	res.render('help.hbs', {
+		pageTitle: 'Help',
+		welcomeMessage: 'Looks like you need help!'
 	});
 });
 app.get('/about', (req, res) => {
